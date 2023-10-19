@@ -3,7 +3,7 @@
 // Ens connectem a la base de dades	
 function conect() {
     try {
-        $connexio = new PDO('mysql:host=localhost;dbname=pt03_mario_flores', 'root', '');
+        $connexio = new PDO('mysql:host=localhost;dbname=pt04_mario_flores', 'root', '');
         return $connexio;
     } catch (PDOException $e) {
         echo "Error: " . $e->getMessage();
@@ -55,5 +55,18 @@ function mostrarArticles() {
     <?php endforeach;
 }
 
+    // Función de login
+    function login($mail, $password) {
+        $conn = mysqli_connect("localhost", "root", "", "pt04_mario_flores");
+        $sql = $conn->prepare("SELECT * FROM usuarios WHERE email = ? AND contraseña = ?");
+        $sql->bind_param("ss", $mail, $password);
+        $sql->execute();
+        $result = $sql->get_result();
+        if (mysqli_num_rows($result) == "1") {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 ?>
