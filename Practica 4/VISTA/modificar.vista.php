@@ -1,6 +1,7 @@
 <!-- Mario Flores -->
 <?php
- require_once '../CONTROLADOR/index.php';
+ require_once '../CONTROLADOR/modificar.php';
+ require_once '../CONTROLADOR/session.php'
 ?>
 
 <!DOCTYPE html>
@@ -10,14 +11,13 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">  
 	<link rel="stylesheet" href="../estils.css"> <!-- feu referència al vostre fitxer d'estils -->
-	<title>Paginació</title>
+	<title>Logeado</title>
 </head>
 <body>
 	<div class="contenidor">
 		<h1>Articles</h1>
 		<form method="get">
-			<button name="Login" type="button" onclick="window.location.href='./login.php'">Login</button>
-			<button name="Register" type="button" onclick="window.location.href='./register.php'">Register</button>
+        <a href="../CONTROLADOR/index.php"><button name="Logout" type="button" onclick="<?php sessionEnd();?>">Logout</button></a>
 			<select name="select" class="select" onchange="this.form.submit()">
 			<!-- Desplegable para seleccionar cuántos posts por página, y método para que se guarde como seleccionado -->
 				<option value="5" <?php if (isset($_GET['select']) && $_GET['select'] == 5) echo 'selected'; ?>>5</option>

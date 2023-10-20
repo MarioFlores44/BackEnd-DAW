@@ -11,6 +11,16 @@ function conect() {
     }
 }
 
+function conectMysqli() {
+    try {
+        $connexio = new mysqli('localhost', 'root', '', 'pt04_mario_flores');
+        return $connexio;
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
+        die();
+    }
+}
+
 // Calculem el total d'articles per a poder conèixer el número de pàgines de la paginació
 function numeroPagines() {
     $connexio = conect();
@@ -57,16 +67,45 @@ function mostrarArticles() {
 
     // Función de login
     function login($mail, $password) {
-        $conn = mysqli_connect("localhost", "root", "", "pt04_mario_flores");
-        $sql = $conn->prepare("SELECT * FROM usuarios WHERE email = ? AND contraseña = ?");
-        $sql->bind_param("ss", $mail, $password);
-        $sql->execute();
-        $result = $sql->get_result();
-        if (mysqli_num_rows($result) == "1") {
+        $conn = conect();
+        $sql = $conn->prepare("SELECT * FROM usuarios WHERE email = ?");
+        $sql->execute(
+            array($mail)
+        );
+        $result = $sql->fetchAll();
+        
+        if ($result) {
+            $passwordHash = $result[0]['contraseña'];
+            if (password_verify($password, $passwordHash)) {
+                return 0;
+            } else {
+                return 2;
+            }
+        } else {
+            return 1;
+        }
+    }
+
+    // Función para buscar el mail dentro de la base de datos
+    function trobarMail($mail) {
+        $conn = conect();
+        $sql = $conn->prepare("SELECT * FROM usuarios WHERE email = ?");
+        $sql->execute(
+            array($mail)
+        );
+        $result = $sql->fetchAll();
+        if ($result) {
             return true;
         } else {
             return false;
         }
+    }
+
+    // Función de registro
+    function registre($mail, $pswrd) {
+        $conn = conect();
+        $sql = $conn->prepare("INSERT INTO usuarios (email, contraseña) VALUES (?, ?)");
+        $sql->execute(array($mail, $pswrd));
     }
 
 ?>
