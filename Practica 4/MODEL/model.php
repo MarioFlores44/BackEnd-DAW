@@ -108,4 +108,47 @@ function mostrarArticles() {
         $sql->execute(array($mail, $pswrd));
     }
 
+
+    // Mostrar articulos pero para poder editarlos
+    function mostrarArticlesEditables() {
+        $connexio = conect();
+        $pagina = paginaActual();
+        $postsPerPagina = postsPerPagina();
+        $inici = ($pagina > 1 && $pagina <= numeroPagines()) ? ($pagina * $postsPerPagina - $postsPerPagina) : 0;
+    
+        
+    // Preparem la consulta SQL
+        $articles = $connexio->prepare("SELECT * FROM articles LIMIT $inici, $postsPerPagina");
+
+        $_POST['inici'] = $inici;
+        $_POST['postsPerPagina'] = $postsPerPagina;
+    
+    // Executem la consulta
+        $articles->execute();
+    
+    // Comprovem que hagui articles, en cas contrari, rediriguim
+        $articles = $articles->fetchAll();
+        if (!$articles) {
+            header('Location: index.php');
+        }
+        foreach ($articles as $article) : ?>
+            <li><?php echo $article['id'] . ' - '?><input value="<?php echo $article['article']; ?>" type="text" name="article<?php echo $article['id']?>"></input>
+        </li>
+        <?php endforeach;
+    }
+
+    // Función para guardar el articulo modificado
+    function guardarArticulo() {
+        $connexio = conect();
+        
+        for ($i = $_POST['inici']; $i < $_POST['postsPerPagina']; $i++) {
+            if (isset($_GET['article' . $i + 1])) {
+                $article = $_GET['article' . $i + 1];
+                $id = $i + 1;
+                $sql = $connexio->prepare("UPDATE articles SET article = ? WHERE id = ?");
+                $sql->execute(array($article, $id));
+            }
+        }
+        
+    }
 ?>

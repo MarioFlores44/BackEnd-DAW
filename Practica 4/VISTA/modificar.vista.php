@@ -27,11 +27,15 @@
 				<option value="25" <?php if (isset($_GET['select']) && $_GET['select'] == 25) echo 'selected'; ?>>25</option>
 			</select> <br>
 		<section class="articles">
-			<ul>
-					<?php
-						mostrarArticles();
-					?>
-			</ul>
+			<form method="get">
+				<ul>
+						<?php
+							mostrarArticlesEditables();
+						?>
+						<input type="submit" value="Guardar">
+				</ul>
+				<?php guardarArticulo()?>
+			</form>
 		</section>
 	</div>
 	<div class="peu">
