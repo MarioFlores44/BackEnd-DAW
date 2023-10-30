@@ -14,7 +14,7 @@ define("MAIL_USERNAME", "mflorespalafolls@gmail.com");
 define("MAIL_PASSWORD", "fzcp xhvl wlxe yzcj");
 define("MAIL_SMTP_SECURE", PHPMailer::ENCRYPTION_SMTPS);
 define("MAIL_PORT", 465);
-define("BASE_RESET_URL", "http://localhost/UF1/exam/controller/change-password.php?token=");
-define("MAIL_SENDER_NAME", "exam UF1");
+define("BASE_RESET_URL", "http://localhost/BackEnd-DAW/Practica%205/CONTROLADOR/change-password.php?");
+define("MAIL_SENDER_NAME", "Password Recovery");
 
 ?>

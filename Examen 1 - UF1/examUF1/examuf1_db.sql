@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-10-2022 a las 19:29:51
--- Versión del servidor: 10.4.24-MariaDB
--- Versión de PHP: 7.4.29
+-- Tiempo de generación: 23-10-2023 a las 20:36:39
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,9 +29,8 @@ USE `examuf1_db`;
 -- Estructura de tabla para la tabla `posts`
 --
 
-DROP TABLE IF EXISTS `posts`;
-CREATE TABLE IF NOT EXISTS `posts` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `posts` (
+  `id` int(11) NOT NULL,
   `synopsis` text NOT NULL,
   `title` text NOT NULL,
   `director` text NOT NULL,
@@ -39,15 +38,9 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `youtube_link` text NOT NULL,
   `user_id` int(11) NOT NULL,
   `dateTime` timestamp NOT NULL DEFAULT current_timestamp(),
-  `image_path` text NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8mb4;
+  `image_path` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Truncar tablas antes de insertar `posts`
---
-
-TRUNCATE TABLE `posts`;
 --
 -- Volcado de datos para la tabla `posts`
 --
@@ -93,32 +86,60 @@ INSERT INTO `posts` (`id`, `synopsis`, `title`, `director`, `link`, `youtube_lin
 -- Estructura de tabla para la tabla `users`
 --
 
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE IF NOT EXISTS `users` (
+CREATE TABLE `users` (
   `nickname` varchar(100) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(32) NOT NULL,
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `reset_token` text NOT NULL,
   `remember_me_token` text NOT NULL,
   `social_provider` enum('','Twitter','GitHub','Google') NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+  `admin` tinyint(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Truncar tablas antes de insertar `users`
---
-
-TRUNCATE TABLE `users`;
 --
 -- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `users` (`nickname`, `email`, `password`, `id`, `reset_token`, `remember_me_token`, `social_provider`) VALUES
-('Anakin', 'anakinskywalker@example.com', 'dd9d21e22391090ddce7c6ed58c6412d', 1, '', '', ''),
-('Usuari1', 'user@example.com', 'dd9d21e22391090ddce7c6ed58c6412d', 2, '', '', ''),
-('Luke', 'lukeskywalker@sapalomera.cat', '', 3, '', 'da8aa95050bdaede6d7415e9af84ef1a', 'GitHub'),
-('Obi-Wan', 'Obiwankenobi.02@gmail.com', '', 4, '', '', 'Twitter');
+INSERT INTO `users` (`nickname`, `email`, `password`, `id`, `reset_token`, `remember_me_token`, `social_provider`, `admin`) VALUES
+('Anakin', 'anakinskywalker@example.com', 'dd9d21e22391090ddce7c6ed58c6412d', 1, '', 'b3a91cfff5163b6a901d6225ba597a42', '', NULL),
+('Usuari1', 'user@example.com', 'dd9d21e22391090ddce7c6ed58c6412d', 2, '', '75913a8567ed0bf6a286d27f26c1883a', '', NULL),
+('Luke', 'lukeskywalker@sapalomera.cat', '', 3, '', 'da8aa95050bdaede6d7415e9af84ef1a', 'GitHub', NULL),
+('Obi-Wan', 'Obiwankenobi.02@gmail.com', '', 4, '', '', 'Twitter', NULL),
+('MarioFlores', 'mflores@sapalomera.cat', '62c8ad0a15d9d1ca38d5dee762a16e01', 5, '', '95ce32becedbf6870baecaa08267da1e', '', 1),
+('MarioFl2', 'mflores2@sapalomera.cat', '$2y$10$4CuERP1cLIMHHn6zCVU3NOd/F', 6, '', '9f3076a0d17e2a82611168cb80e6d408', '', NULL);
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `posts`
+--
+ALTER TABLE `posts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `posts`
+--
+ALTER TABLE `posts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+
+--
+-- AUTO_INCREMENT de la tabla `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
