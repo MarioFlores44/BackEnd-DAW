@@ -164,7 +164,8 @@ function mostrarArticles() {
             $sql->execute(array($mail));
             $result = $sql->fetch();
             $tokenTime = $result['tokenTime'];
-            $resta = strtotime($tokenTime - strtotime(date('Y-m-d H:i:s')));
+            // Convertir el tokenTime a segundos y restarlo con la fecha actual
+            $resta = strtotime(date("Y-m-d H:i:s")) - strtotime($tokenTime);
             if ($resta > 14400) {
                 return null;
             } else {
@@ -219,5 +220,5 @@ function mostrarArticles() {
         } catch (Exception $e) {
             echo $e->getMessage();
         }       
-    }
+    } 
 ?>

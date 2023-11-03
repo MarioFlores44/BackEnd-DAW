@@ -6,9 +6,9 @@
     use PHPMailer\PHPMailer\Exception;
 
     // Cargamos los ficheros de las clases de PHPMailer
-    require 'D:\2n DAW\Apps\XAMPP\PHPMailer-master\src\Exception.php';
-    require 'D:\2n DAW\Apps\XAMPP\PHPMailer-master\src\PHPMailer.php';
-    require 'D:\2n DAW\Apps\XAMPP\PHPMailer-master\src\SMTP.php';
+    require '../lib/PHPMailer-master/src/Exception.php';
+    require '../lib/PHPMailer-master/src/PHPMailer.php';
+    require '../lib/PHPMailer-master/src/SMTP.php';
     // Función para comprobar si mail introducido existe, y si es así, mandar un mail con el token
     function mandarMail() {
         if (!empty($_POST['mail'])) {
@@ -16,25 +16,30 @@
                 generarToken($_POST['mail']);
                 $token = obtenirToken($_POST['mail']);
 
-                $mail = new PHPMailer(true);
+                try {
+                    $mail = new PHPMailer(true);
 
                 $mail->SMTPDebug = 0;
                 $mail->isSMTP();
                 $mail->Host       = 'smtp.gmail.com';
                 $mail->SMTPAuth   = true;
-                $mail->Username   = MAIL_USERNAME;
-                $mail->Password   = MAIL_PASSWORD;
+                $mail->Username   = "mflorespalafolls@gmail.com";
+                $mail->Password   = "fzcp xhvl wlxe yzcj";
                 $mail->SMTPSecure = 'tls';
                 $mail->Port       = 587;
 
-                $mail->setFrom(MAIL_USERNAME, MAIL_SENDER_NAME);
+                $mail->setFrom("mflorespalafolls@gmail.com", "Password Recovery");
                 $mail->addAddress($_POST['mail']);
                 $mail->isHTML(true);
                 $mail->Subject = 'Recuperar contraseña';
-                $mail->Body    = '<a href="' . BASE_RESET_URL . "id=". $_POST['mail'] . "&token=". $token .'">Click aquí para cambiar la contraseña</a>';
+                $mail->Body    = '<a href="' . "http://localhost/BackEnd-DAW/Practica%205/CONTROLADOR/change-password.php?" . "mail=". $_POST['mail'] . "&token=". $token .'">Click aquí para cambiar la contraseña</a>';
 
-                $mail->send();
-                echo '<script language="javascript">alert("Se ha enviado un mail para cambiar la contraseña")</script>';
+                if ($mail->send()) {
+                    header("Location: ../VISTA/pswrd-recuperada.php");
+                }
+                } catch (Exception $e) {
+                    echo '<script language="javascript">alert("No se ha podido enviar el mail")</script>';
+                }
             } else {
                 echo '<script language="javascript">alert("El mail no existe")</script>';
             }

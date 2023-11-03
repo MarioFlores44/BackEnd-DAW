@@ -2,8 +2,8 @@
     require_once '../MODEL/model.php';
 
     function changePassword() {
-        if (!empty($_POST['password']) && !empty($_POST['password2'])) {
-            if ($_POST['password'] == $_POST['password2']) {
+        if (!empty($_POST['password']) && !empty($_POST['repswd'])) {
+            if ($_POST['password'] == $_POST['repswd']) {
                 $password = htmlspecialchars($_POST['password']);
                 $mail = htmlspecialchars($_GET['mail']);
                 $token = htmlspecialchars($_GET['token']);
@@ -20,12 +20,12 @@
             } else {
                 echo '<script language="javascript">alert("Las contraseñas no coinciden")</script>';
             }
-        } else if (empty($_POST['password']) && !empty($_POST['password2'])) {
+        } else if (empty($_POST['password']) && !empty($_POST['repswd'])) {
             echo '<script language="javascript">alert("Introduce la contraseña")</script>';
-        } else if (!empty($_POST['password']) && empty($_POST['password2'])) {
-            echo '<script language="javascript">alert("Introduce la contraseña")</script>';
-        } else {
-            echo '<script language="javascript">alert("Introduce la contraseña")</script>';
+        } else if (!empty($_POST['password']) && empty($_POST['repswd'])) {
+            echo '<script language="javascript">alert("Introduce la contraseña otra vez")</script>';
         }
     }
+
+    require '../VISTA/change-password.vista.php';
 ?>

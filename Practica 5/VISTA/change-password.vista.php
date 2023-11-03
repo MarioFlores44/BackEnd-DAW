@@ -18,10 +18,10 @@
         <div class="registre">
         <form method="post">
         <label for="password">Nova Contrassenya</label>
-        <input type="password" name="password" class="password" value=<?php echo tenimPassword();?>><br>
-        <label for="password">Repetir contrassenya</label>
+        <input type="password" name="password" class="password"><br>
+        <label for="password2">Repetir contrassenya</label>
         <input type="password" name="repswd" class="repswd"><br>
-        <input type="submit" value="Entrar">
+        <input type="submit" value="Canviar">
         <button type="button" onclick="window.location.href='../CONTROLADOR/index.php'">Tornar</button>
         </form>
         </div>
