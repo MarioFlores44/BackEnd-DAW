@@ -220,5 +220,20 @@ function mostrarArticles() {
         } catch (Exception $e) {
             echo $e->getMessage();
         }       
-    } 
+    }
+
+    // Función para crear usuario con GitHub
+    function crearUsuarioGitHub($mail, $token) {
+        try {
+            echo "Hola";
+            $conn = conect();
+            $mailCorrecte = trobarMail($mail);
+            if (!$mailCorrecte) {
+                $sql = $conn->prepare("INSERT INTO usuarios (email, token_git) VALUES (?, ?)");
+                $sql->execute(array($mail, $token));
+            }
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+    }
 ?>
