@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-10-2023 a las 22:06:00
+-- Tiempo de generación: 13-11-2023 a las 22:31:10
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -74,16 +74,20 @@ INSERT INTO `articles` (`id`, `article`, `email`) VALUES
 
 CREATE TABLE `usuarios` (
   `email` varchar(30) NOT NULL,
-  `contraseña` text NOT NULL
+  `contraseña` text NOT NULL,
+  `token` text NOT NULL,
+  `tokenTime` datetime NOT NULL DEFAULT current_timestamp(),
+  `google_id` varchar(150) DEFAULT NULL,
+  `token_git` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`email`, `contraseña`) VALUES
-('mflores@gmail.com', '$2y$10$wtoZfe9xwx2W5EwFLqU.x.fvYbumTZWTMAmoZ7rkepl/pnv3Yhhmy'),
-('termineitor444xd@gmail.com', '1234');
+INSERT INTO `usuarios` (`email`, `contraseña`, `token`, `tokenTime`, `google_id`, `token_git`) VALUES
+('mflores@gmail.com', '$2y$10$6E10P.NFekOhMCjl7rrrkuVq/OhI4ZUhSu3bz9bZatPH1KyU67Wcy', '12e580c0c43fcc8da76110b5572070', '2023-10-30 19:48:36', '', ''),
+('termineitor444xd@gmail.com', '1234', '', '2023-10-30 00:00:00', '', '');
 
 --
 -- Índices para tablas volcadas
