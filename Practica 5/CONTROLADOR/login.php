@@ -147,7 +147,7 @@ if(isset($_GET['code'])):
         $get_user = mysqli_query($db_connection, "SELECT `google_id` FROM `usuarios` WHERE `google_id`='$id'");
         if(mysqli_num_rows($get_user) > 0){
             $_SESSION['login_id'] = $id; 
-            header('Location: index.php');
+            header('Location: modificar.php');
             exit;
         }
         else{
