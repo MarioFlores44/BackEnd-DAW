@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('controllers/index.controller.php');
+    return view('controllers/index.blade.php');
 });
 
 require __DIR__.'/auth.php';
