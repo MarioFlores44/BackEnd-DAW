@@ -94,11 +94,10 @@ h1 {
 
 .peu {
 	position: fixed;
-	bottom: 0;
+	bottom: 50%;
     left: 0;
 	width: 100%;
 	text-align: center;
-    transform: translate(0, -50%);
 }
 
 .select {
