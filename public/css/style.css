@@ -96,11 +96,8 @@ h1 {
 	position: fixed;
 	bottom: 0;
     left: 0;
-	padding-bottom: 1%;
-	padding-left: 25%;
 	width: 100%;
 	text-align: center;
-    transform: translate(50%, 0);
 }
 
 .select {
