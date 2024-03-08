@@ -155,3 +155,8 @@ h1 {
 .buttonPSWD:hover {
 	background-color: #b3b3b3;
 }
+
+svg {
+    width: 1em;
+    height: 1em;
+}
