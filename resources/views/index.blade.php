@@ -22,17 +22,14 @@
 			<ul>
 				@foreach ($articles as $article)
 					<li>
-						<h2>{{ $article->id }}</h2>
-						<p>{{ $article->article }}</p>
+						<p>{{ $article->id }} - {{ $article->article }}</p>
 					</li>
 				@endforeach
 			</ul>
 		</section>
 	</div>
 	<div class="peu">
-		<?php
-			// mostrarPaginacio();
-		?>
+		{{ $articles->links() }}
 	</div>
 </body>
 </html>
