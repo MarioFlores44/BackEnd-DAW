@@ -93,6 +93,8 @@ h1 {
 }
 
 .peu {
+	position: fixed;
+	bottom: 0;
 	padding-bottom: 1%;
 	padding-left: 25%;
 	width: 100%;
@@ -155,6 +157,6 @@ h1 {
 }
 
 svg {
-    width: 2em;
-    height: 2em;
+    width: 1em;
+    height: 1em;
 }
