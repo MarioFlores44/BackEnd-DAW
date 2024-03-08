@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Foundation\Validation\ValidatesRequests;
-use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Http\Request;
 use App\Models\Articles;
 
-class ArticlesController extends BaseController
+class ArticlesController extends Controller
 {
     function show() {
         $data = Articles::paginate(5);
