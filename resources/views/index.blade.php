@@ -20,7 +20,12 @@
 			<button name="Register" type="button" onclick="window.location.href='{{ route('register') }}'">Register</button>
 		<section class="articles">
 			<ul>
-				
+				@foreach ($articles as $article)
+					<li>
+						<h2>{{ $article->id }}</h2>
+						<p>{{ $article->article }}</p>
+					</li>
+				@endforeach
 			</ul>
 		</section>
 	</div>
