@@ -11,6 +11,6 @@ class ArticlesController extends BaseController
 {
     function show() {
         $data = Articles::paginate(5);
-        return view('articles', ['articles' => $data]);
+        return view('index', ['articles' => $data]);
     }
 }
