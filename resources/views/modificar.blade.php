@@ -18,11 +18,13 @@
         </a>
 		<section class="articles">
 			<form method="get">
-                @foreach ($articles as $article)
-					<li>
-						<p>{{ $article->id }} - {{ $article->article }}</p>
-					</li>
-				@endforeach
+                <ul>
+                    @foreach ($articles as $article)
+                        <li>
+                            <p>{{ $article->id }} - {{ $article->article }}</p>
+                        </li>
+                    @endforeach
+                </ul>
 			</form>
 		</section>
 	</div>
