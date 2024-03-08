@@ -45,6 +45,4 @@ function mostrarPaginacio() {
 
     echo '</ul></section>';
 }
-
-require '../views/index.blade.php';
 ?>
