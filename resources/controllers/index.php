@@ -1,7 +1,7 @@
 <!-- Mario Flores Muñoz -->
 
 <?php 
-require_once '../model/model.php';
+// require_once '../model/model.php';
 // Establim el numero de pagina en la que l'usuari es troba.
 # si no troba cap valor, assignem la pagina 1.
 function paginaActual() {
