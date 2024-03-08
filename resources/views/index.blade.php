@@ -16,8 +16,8 @@
 	<div class="contenidor">
 		<h1>Articles</h1>
 		<form method="get">
-			<button name="Login" type="button" onclick="window.location.href='./login.php'">Login</button>
-			<button name="Register" type="button" onclick="window.location.href='./register.php'">Register</button>
+			<button name="Login" type="button" onclick="window.location.href='{{ route('login') }}'">Login</button>
+			<button name="Register" type="button" onclick="window.location.href='{{ route('register') }}'">Register</button>
 			<select name="select" class="select" onchange="this.form.submit()">
 			<!-- Desplegable para seleccionar cuántos posts por página, y método para que se guarde como seleccionado -->
 				<option value="5" <?php if (isset($_GET['select']) && $_GET['select'] == 5) echo 'selected'; ?>>5</option>
