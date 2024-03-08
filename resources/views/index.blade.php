@@ -18,19 +18,9 @@
 		<form method="get">
 			<button name="Login" type="button" onclick="window.location.href='{{ route('login') }}'">Login</button>
 			<button name="Register" type="button" onclick="window.location.href='{{ route('register') }}'">Register</button>
-			<select name="select" class="select" onchange="this.form.submit()">
-			<!-- Desplegable para seleccionar cuántos posts por página, y método para que se guarde como seleccionado -->
-				<option value="5" <?php if (isset($_GET['select']) && $_GET['select'] == 5) echo 'selected'; ?>>5</option>
-				<option value="10" <?php if (isset($_GET['select']) && $_GET['select'] == 10) echo 'selected'; ?>>10</option>
-				<option value="15" <?php if (isset($_GET['select']) && $_GET['select'] == 15) echo 'selected'; ?>>15</option>
-				<option value="20" <?php if (isset($_GET['select']) && $_GET['select'] == 20) echo 'selected'; ?>>20</option>
-				<option value="25" <?php if (isset($_GET['select']) && $_GET['select'] == 25) echo 'selected'; ?>>25</option>
-			</select> <br>
 		<section class="articles">
 			<ul>
-					<?php
-						// mostrarArticles();
-					?>
+				
 			</ul>
 		</section>
 	</div>
