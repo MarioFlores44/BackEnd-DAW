@@ -1,7 +1,7 @@
 <!-- Mario Flores -->
-<?php
+<!-- <?php
  require_once '../controller/index.php';
-?>
+?> -->
 
 <!DOCTYPE html>
 <html lang="en">
