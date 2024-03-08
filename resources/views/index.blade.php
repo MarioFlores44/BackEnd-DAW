@@ -36,7 +36,7 @@
 	</div>
 	<div class="peu">
 		<?php
-			mostrarPaginacio();
+			// mostrarPaginacio();
 		?>
 	</div>
 </body>
