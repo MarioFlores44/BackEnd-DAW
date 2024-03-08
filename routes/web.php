@@ -17,6 +17,6 @@ use App\Http\Controllers\ArticlesController;
 
 Route::get('/', [ArticlesController::class, 'show'])->name('index');
 
-Route::get('/dashboard',  [ArticlesController::class, 'show'])->middleware(['auth'])->name('modificar');
+Route::get('/dashboard',  [ArticlesController::class, 'show2'])->middleware(['auth'])->name('modificar');
 
 require __DIR__.'/auth.php';

@@ -11,4 +11,9 @@ class ArticlesController extends Controller
         $data = Articles::paginate(5);
         return view('index', ['articles' => $data]);
     }
+
+    function show2() {
+        $data = Articles::paginate(5);
+        return view('modificar', ['articles' => $data]);
+    }
 }
