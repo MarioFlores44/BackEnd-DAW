@@ -10,6 +10,9 @@
 	<title>Logeado</title>
 </head>
 <body>
+<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+    {{ csrf_field() }}
+</form>
 	<div class="contenidor">
 		<h1>Articles</h1>
 		<form method="get">
