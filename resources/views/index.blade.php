@@ -29,7 +29,7 @@
 		<section class="articles">
 			<ul>
 					<?php
-						mostrarArticles();
+						// mostrarArticles();
 					?>
 			</ul>
 		</section>
