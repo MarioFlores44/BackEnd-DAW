@@ -21,7 +21,7 @@ Route::get('/dashboard',  [ArticlesController::class, 'show2'])->middleware(['au
 
 Route::get('/crear', function(){
     return view('nou');
-});
+})->name('nou');
 
 Route::get('editar')->name('editar');
 
