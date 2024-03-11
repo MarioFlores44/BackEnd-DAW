@@ -19,12 +19,12 @@ Route::get('/', [ArticlesController::class, 'show'])->name('index');
 
 Route::get('/dashboard',  [ArticlesController::class, 'show2'])->middleware(['auth'])->name('modificar');
 
-Route::get('crear')->name('nou');
+Route::get('/crear'){
+    return view('nou');
+};
 
 Route::get('editar')->name('editar');
 
-Route::get('eliminar'){
-    return view('nou');
-};
+Route::get('eliminar')->name('eliminar');
 
 require __DIR__.'/auth.php';
