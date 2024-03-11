@@ -1,15 +1,4 @@
 <!-- Mario Flores -->
-<?php
-function save(Request $request)
-{
-    $article = new Article;
-    $article->title = $request->input('title');
-    $article->content = $request->input('content');
-    $article->save();
-
-    return redirect()->route('dashboard');
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
