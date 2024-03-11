@@ -14,7 +14,7 @@
 		<section class="articles">
             <h2>Article nou</h2>
             <form action="{{ route('nou') }}" method="post">
-                @csrfç
+                @csrf
                 <input type="text" required>
                 <input type="submit" value="Desa">
             </form>
