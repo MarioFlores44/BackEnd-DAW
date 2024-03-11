@@ -23,6 +23,8 @@ Route::get('crear')->name('nou');
 
 Route::get('editar')->name('editar');
 
-Route::get('eliminar')->name('eliminar');
+Route::get('eliminar'){
+    return view('nou');
+};
 
 require __DIR__.'/auth.php';
