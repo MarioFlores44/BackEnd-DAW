@@ -16,4 +16,19 @@ class ArticlesController extends Controller
         $data = Articles::paginate(5);
         return view('modificar', ['articles' => $data]);
     }
+
+    function create(){
+        return view('create');
+    }
+
+    function store(Request $request){
+        $article = ArticlesNous::create([
+            'title' => $request->contingut,
+            'content' => auth()->email()
+        ]);
+
+        event(new Registered($article));
+
+        return redirect({{ route('modificar') }});
+    }
 }

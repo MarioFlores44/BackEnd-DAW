@@ -13,9 +13,9 @@
 		<h1><a href="{{ route('modificar') }}">Articles</a></h1>
 		<section class="articles">
             <h2>Article nou</h2>
-            <form action="{{ route('nou') }}" method="post">
+            <form action="{{ route('nouArticle') }}" method="post">
                 @csrf
-                <input type="text" required>
+                <input type="text" name="contingut" required>
                 <input type="submit" value="Desa">
             </form>
 	</div>

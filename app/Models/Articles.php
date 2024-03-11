@@ -11,3 +11,16 @@ class Articles extends Model
 
     public $tabla = 'articles';
 }
+
+
+class ArticlesNou extends Authenticatable
+{
+    use HasFactory, HasApiTokens, Notifiable;
+    protected $tabla = 'articles';
+    public $timestamps = false;
+
+    protected $fillable = [
+        'article',
+        'user'
+    ];
+}
