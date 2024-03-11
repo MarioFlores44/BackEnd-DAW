@@ -159,3 +159,7 @@ svg {
     width: 1em;
     height: 1em;
 }
+
+#perfil {
+	text-align: right;
+}

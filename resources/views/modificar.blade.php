@@ -19,13 +19,24 @@
         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
             Logout
         </a>
+		<a href="{{ route('perfil') }}" id="perfil">
+			Perfil
+		</a>
 		<section class="articles">
 			<form method="get">
                 <ul>
                     @foreach ($articles as $article)
                         <li>
-                            <p>{{ $article->id }} - {{ $article->article }}</p>
+                            <input>{{ $article->id }} - {{ $article->article }}</input>
                         </li>
+						<li>
+							<a href="{{ route('editar', $article->id) }}" id="editar">
+								Editar
+							</a>
+							<a href="{{ route('eliminar', $article->id) }}" id="eliminar">
+								Eliminar
+							</a>
+						</li>
                     @endforeach
                 </ul>
 			</form>
