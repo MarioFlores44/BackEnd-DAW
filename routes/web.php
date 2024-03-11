@@ -19,9 +19,9 @@ Route::get('/', [ArticlesController::class, 'show'])->name('index');
 
 Route::get('/dashboard',  [ArticlesController::class, 'show2'])->middleware(['auth'])->name('modificar');
 
-Route::get('/crear'){
+Route::get('/crear', function(){
     return view('nou');
-};
+});
 
 Route::get('editar')->name('editar');
 
