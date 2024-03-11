@@ -19,9 +19,6 @@
         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
             Logout
         </a>
-		<a href="{{ route('perfil') }}" id="perfil">
-			Perfil
-		</a>
 		<section class="articles">
 			<form method="get">
                 <ul>
