@@ -1,6 +1,6 @@
 <!-- Mario Flores -->
 <?php
-function store(Request $request)
+function save(Request $request)
 {
     $article = new Article;
     $article->title = $request->input('title');
