@@ -19,8 +19,5 @@
                 <input type="submit" value="Desa">
             </form>
 	</div>
-	<div class="peu">
-        {{ $articles->links() }}
-	</div>
 </body>
 </html>
