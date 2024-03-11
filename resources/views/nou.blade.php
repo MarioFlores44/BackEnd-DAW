@@ -10,7 +10,7 @@
 </head>
 <body>
 	<div class="contenidor">
-		<h1><a href="{{ route('dashboard') }}">Articles</a></h1>
+		<h1><a href="{{ route('modificar') }}">Articles</a></h1>
 		<section class="articles">
             <h2>Article nou</h2>
             <form action="{{ route('nou') }}" method="post">
