@@ -19,12 +19,15 @@
         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
             Logout
         </a>
+		<a href="{{ route('crear') }}" id="crear">
+			Crear
+		</a>
 		<section class="articles">
 			<form method="get">
                 <ul>
                     @foreach ($articles as $article)
                         <li>
-                            <input>{{ $article->id }} - {{ $article->article }}</input>
+                            <input value="{{ $article->id }} - {{ $article->article }}">
                         </li>
 						<li>
 							<a href="{{ route('editar', $article->id) }}" id="editar">
