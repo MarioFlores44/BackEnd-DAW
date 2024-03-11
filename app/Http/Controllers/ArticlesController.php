@@ -31,6 +31,6 @@ class ArticlesController extends Controller
 
         event(new Registered($article));
 
-        return redirect("{{ route('modificar') }}");
+        return redirect('modificar');
     }
 }
