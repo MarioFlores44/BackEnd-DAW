@@ -42,7 +42,7 @@
 			</form>
 		</section>
 	</div>
-	<div class="peu">
+	<div class="peu2">
         {{ $articles->links() }}
 	</div>
 </body>
