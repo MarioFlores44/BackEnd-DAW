@@ -22,7 +22,7 @@ class ArticlesController extends Controller
     }
 
     function store(Request $request){
-        $article = ArticlesNous::create([
+        $article = ArticlesNou::create([
             'title' => $request->contingut,
             'content' => auth()->email()
         ]);
