@@ -25,8 +25,8 @@ class ArticlesController extends Controller
 
     function store(Request $request){
         $article = ArticlesNou::create([
-            'title' => $request->contingut,
-            'content' => auth()->id()
+            'article' => $request->contingut,
+            'user' => auth()->id()
         ]);
 
         event(new Registered($article));
