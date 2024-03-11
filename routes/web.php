@@ -19,7 +19,7 @@ Route::get('/', [ArticlesController::class, 'show'])->name('index');
 
 Route::get('/dashboard',  [ArticlesController::class, 'show2'])->middleware(['auth'])->name('modificar');
 
-Route::get('crear')->name('crear');
+Route::get('crear')->name('nou');
 
 Route::get('editar')->name('editar');
 
