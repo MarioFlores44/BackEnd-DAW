@@ -11,7 +11,7 @@ use Laravel\Sanctum\HasApiTokens;
 class ArticlesNou extends Authenticatable
 {
     use HasFactory, HasApiTokens, Notifiable;
-    protected $tabla = 'articles';
+    protected $table = 'articles';
     public $timestamps = false;
 
     protected $fillable = [
