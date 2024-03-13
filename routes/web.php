@@ -29,6 +29,6 @@ Route::post('nouArticle', [ArticlesController::class, 'store']);
 
 Route::get('editar')->name('editar');
 
-Route::get('eliminar')->name('eliminar');
+Route::get('delete/{id}', [ArticlesController::class, 'delete'])->name('delete');
 
 require __DIR__.'/auth.php';

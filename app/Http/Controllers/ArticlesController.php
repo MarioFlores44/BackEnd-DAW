@@ -23,6 +23,17 @@ class ArticlesController extends Controller
         return view('create');
     }
 
+    function delete($id){
+        $article = Article::find($id);
+
+        if ($article) {
+            $article->delete();
+            return redirect()->route('dashboard')->with('success', 'Article deleted successfully');
+        } else {
+            return redirect()->route('dashboard')->with('error', 'Article not found');
+        }
+    }
+
     function store(Request $request){
         $article = ArticlesNou::create([
             'article' => $request->contingut,
