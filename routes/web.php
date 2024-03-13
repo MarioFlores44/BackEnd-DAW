@@ -27,7 +27,7 @@ Route::get('nouArticle', [ArticlesController::class, 'create'])->name('nouArticl
 
 Route::post('nouArticle', [ArticlesController::class, 'store']);
 
-Route::post('update/{id}', [ArticlesController::class, 'update'])->name('update');
+Route::get('update/{id}', [ArticlesController::class, 'update'])->name('update');
 
 Route::get('delete/{id}', [ArticlesController::class, 'delete'])->name('delete');
 
