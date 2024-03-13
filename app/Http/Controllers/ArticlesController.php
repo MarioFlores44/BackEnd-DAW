@@ -34,16 +34,17 @@ class ArticlesController extends Controller
         }
     }
 
-    public function update($id, Request $request){
-        $article = Articles::find($id);
-
-        if ($article) {
-            $article->article = $request->contingut;
-            $article->save();
-            return redirect()->route('modificar')->with('success', 'Article updated successfully');
-        } else {
-            return redirect()->route('modificar')->with('error', 'Article not found');
+    public function update(Request $request){
+        foreach ($request->contingut as $id => $contingut) {
+            $article = Articles::find($id);
+    
+            if ($article) {
+                $article->article = $contingut;
+                $article->save();
+            }
         }
+    
+        return redirect()->route('modificar');
     }
 
     function store(Request $request){

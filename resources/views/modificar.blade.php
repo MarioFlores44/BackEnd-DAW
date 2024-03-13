@@ -23,19 +23,18 @@
 			Crear
 		</a>
 		<section class="articles">
-		<ul>
-			@foreach ($articles as $article)
-				<li>
-					<form action="{{ route('update', $article->id) }}" method="POST">
-						@csrf
+		<form action="{{ route('update') }}" method="POST">
+			<ul>
+				@foreach ($articles as $article)
+					<li>
 						{{ $article->id }}
-						<input type="text" name="contingut" value="{{ $article->article }}"><br>
-						<input type="submit" value="Update">
-					</form>
-					<a href="{{ route('delete', $article->id) }}" onclick="return confirm('Are you sure?')">Delete</a>
-				</li>
-			@endforeach
-		</ul>
+						<input type="text" name="contingut[{{ $article->id }}]" value="{{ $article->article }}">
+						<a href="{{ route('delete', $article->id) }}" onclick="return confirm('Are you sure?')">Delete</a>
+					</li>
+				@endforeach
+			</ul>
+			<input type="submit" value="Update">
+		</form>
 		</section>
 	</div>
 	<div class="peu2">
