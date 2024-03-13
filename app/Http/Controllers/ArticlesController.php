@@ -34,8 +34,7 @@ class ArticlesController extends Controller
         }
     }
 
-    public function update(Request $request)
-    {
+    public function update(Request $request){
         foreach ($request->contingut as $id => $contingut) {
             $article = Articles::find($id);
     
@@ -45,7 +44,7 @@ class ArticlesController extends Controller
             }
         }
     
-        return redirect()->route('modificar')->with('success', 'Articles updated successfully');
+        return redirect()->route('modificar');
     }
 
     function store(Request $request){
