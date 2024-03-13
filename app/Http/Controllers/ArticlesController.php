@@ -34,7 +34,7 @@ class ArticlesController extends Controller
         }
     }
 
-    public function update(Request $request){
+    public function update($id, Request $request){
         foreach ($request->contingut as $id => $contingut) {
             $article = Articles::find($id);
     
