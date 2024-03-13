@@ -29,7 +29,7 @@
 					<form action="{{ route('update', $article->id) }}" method="POST">
 						@csrf
 						{{ $article->id }}
-						<input type="text" name="contingut" value="{{ $article->article }}">
+						<input type="text" name="contingut" value="{{ $article->article }}"><br>
 						<input type="submit" value="Update">
 					</form>
 					<a href="{{ route('delete', $article->id) }}" onclick="return confirm('Are you sure?')">Delete</a>
