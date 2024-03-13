@@ -24,7 +24,7 @@ class ArticlesController extends Controller
     }
 
     function delete($id){
-        $article = Article::find($id);
+        $article = Articles::find($id);
 
         if ($article) {
             $article->delete();
