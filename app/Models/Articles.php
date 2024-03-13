@@ -10,4 +10,6 @@ class Articles extends Model
     use HasFactory;
 
     public $tabla = 'articles';
+
+    protected $fillable = ['title', 'content'];
 }
