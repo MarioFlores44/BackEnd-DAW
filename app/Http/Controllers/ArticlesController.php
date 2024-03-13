@@ -34,15 +34,18 @@ class ArticlesController extends Controller
         }
     }
 
-    function update($id, Request $request){
-        $article = Articles::find($id);
-        
-        if ($article) {
-            $article->delete();
-            return redirect()->route('modificar')->with('success', 'Article deleted successfully');
-        } else {
-            return redirect()->route('modificar')->with('error', 'Article not found');
+    public function update(Request $request)
+    {
+        foreach ($request->contingut as $id => $contingut) {
+            $article = Articles::find($id);
+    
+            if ($article) {
+                $article->article = $contingut;
+                $article->save();
+            }
         }
+    
+        return redirect()->route('modificar')->with('success', 'Articles updated successfully');
     }
 
     function store(Request $request){
