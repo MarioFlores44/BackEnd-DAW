@@ -28,9 +28,9 @@ class ArticlesController extends Controller
 
         if ($article) {
             $article->delete();
-            return redirect()->route('dashboard')->with('success', 'Article deleted successfully');
+            return redirect()->route('modificar')->with('success', 'Article deleted successfully');
         } else {
-            return redirect()->route('dashboard')->with('error', 'Article not found');
+            return redirect()->route('modificar')->with('error', 'Article not found');
         }
     }
 
