@@ -23,7 +23,7 @@
 			Crear
 		</a>
 		<section class="articles">
-			<form method="get">
+			<form method="post">
                 <ul>
                     @foreach ($articles as $article)
                         <li>
