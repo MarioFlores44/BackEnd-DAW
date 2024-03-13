@@ -30,10 +30,10 @@
                             <input value="{{ $article->id }} - {{ $article->article }}">
                         </li>
 						<li>
-							<a href="{{ route('editar', $article->id) }}" id="editar">
+							<a href="{{ route('update', $article->id) }}" id="editar">
 								Editar
 							</a>
-							<a href="{{ route('eliminar', $article->id) }}" id="eliminar">
+							<a href="{{ route('delete', $article->id) }}" id="eliminar">
 								Eliminar
 							</a>
 						</li>
