@@ -36,11 +36,10 @@ class ArticlesController extends Controller
 
     function update($id, Request $request){
         $article = Articles::find($id);
-
+        
         if ($article) {
-            $article->article = $request->contingut;
-            $article->save();
-            return redirect()->route('modificar')->with('success', 'Article updated successfully');
+            $article->delete();
+            return redirect()->route('modificar')->with('success', 'Article deleted successfully');
         } else {
             return redirect()->route('modificar')->with('error', 'Article not found');
         }
