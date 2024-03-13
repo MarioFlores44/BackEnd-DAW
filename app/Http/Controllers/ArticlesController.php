@@ -34,6 +34,18 @@ class ArticlesController extends Controller
         }
     }
 
+    function update($id, Request $request){
+        $article = Articles::find($id);
+
+        if ($article) {
+            $article->article = $request->contingut;
+            $article->save();
+            return redirect()->route('modificar')->with('success', 'Article updated successfully');
+        } else {
+            return redirect()->route('modificar')->with('error', 'Article not found');
+        }
+    }
+
     function store(Request $request){
         $article = ArticlesNou::create([
             'article' => $request->contingut,
