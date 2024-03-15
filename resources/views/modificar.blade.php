@@ -21,6 +21,9 @@
 		<button href="{{ route('crear') }}" id="crear">
 			Crear
 		</button>
+		<a href="{{ route('profile') }}">
+			Perfil
+		</a>
 		<section class="articles">
 		<ul>
 			@foreach ($articles as $article)
