@@ -37,4 +37,6 @@ Route::post('profile', [ProfileController::class, 'update'])->name('profile.upda
 
 Route::delete('profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+Route::get('profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+
 require __DIR__.'/auth.php';
