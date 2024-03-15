@@ -31,6 +31,5 @@ Route::post('update', [ArticlesController::class, 'update'])->name('update');
 
 Route::get('delete/{id}', [ArticlesController::class, 'delete'])->name('delete');
 
-Route::get('profile', [ProfileController::class, 'show'])->name('profile');
 
 require __DIR__.'/auth.php';
