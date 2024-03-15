@@ -35,13 +35,11 @@ class ArticlesController extends Controller
     }
 
     function update(Request $request){
-        foreach ($request->contingut as $id => $contingut) {
-            $article = Articles::find($id);
+        $article = Articles::find($request->id);
     
-            if ($article) {
-                $article->article = $contingut;
-                $article->save();
-            }
+        if ($article) {
+            $article->article = $request->contingut;
+            $article->save();
         }
     
         return redirect('modificar');
