@@ -27,7 +27,7 @@
 				<li>
 					<form action="{{ route('update') }}" method="POST">
 						@csrf
-						<input type="hidden" name="id" value="{{ $article->id }}">
+						<input type="text" name="id" value="{{ $article->id }}" disabled>
 						<input type="text" name="contingut" value="{{ $article->article }}">
 						<input type="submit" value="Update">
 					</form>
