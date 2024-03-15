@@ -35,16 +35,15 @@ class ArticlesController extends Controller
     }
 
     function update(Request $request){
-        foreach ($request->contingut as $id => $contingut) {
-            $article = Articles::find($id);
-    
-            if ($article) {
-                $article->article = $contingut;
+        foreach ($request as $id => $article) {
+            if ($id != '_token') {
+                $article = Articles::find($id);
+                $article->article = $request->contingut;
                 $article->save();
             }
         }
-    
-        return redirect()->route('modificar');
+
+        return redirect('modificar');
     }
 
     function store(Request $request){
