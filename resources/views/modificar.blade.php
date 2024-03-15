@@ -15,12 +15,12 @@
 </form>
 	<div class="contenidor">
 		<h1>Articles</h1>
-        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+        <button href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
             Logout
-        </a>
-		<a href="{{ route('crear') }}" id="crear">
+        </button>
+		<button href="{{ route('crear') }}" id="crear">
 			Crear
-		</a>
+		</button>
 		<section class="articles">
 		<ul>
 			@foreach ($articles as $article)
