@@ -32,7 +32,7 @@
 						<input type="text" name="contingut" value="{{ $article->article }}">
 						<input type="submit" value="Update">
 					</form>
-					<a href="{{ route('delete', $article->id) }}" onclick="return confirm('Are you sure?')">Delete</a>
+					<button href="{{ route('delete', $article->id) }}" onclick="return confirm('Are you sure?')">Delete</button>
 				</li>
 			@endforeach
 		</ul>
