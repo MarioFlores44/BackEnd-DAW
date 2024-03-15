@@ -18,12 +18,12 @@
         <button href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
             Logout
         </button>
-		<button href="{{ route('crear') }}" id="crear">
+		<a href="{{ route('crear') }}" id="crear">
 			Crear
-		</button>
-		<button href="{{ route('profile') }}">
+		</a>
+		<a href="{{ route('profile') }}">
 			Perfil
-		</button>
+		</a>
 		<section class="articles">
 		<ul>
 			@foreach ($articles as $article)
