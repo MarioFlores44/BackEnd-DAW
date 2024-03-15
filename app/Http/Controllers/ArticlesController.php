@@ -42,7 +42,7 @@ class ArticlesController extends Controller
             $article->save();
         }
     
-        return redirect('modificar');
+        return redirect()->route('modificar');
     }
 
     function store(Request $request){
