@@ -15,7 +15,6 @@
 </form>
 	<div class="contenidor">
 		<h1>Articles</h1>
-		<form method="get">
         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
             Logout
         </a>
