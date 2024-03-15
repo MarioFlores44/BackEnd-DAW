@@ -28,7 +28,7 @@
 				@foreach ($articles as $article)
 					<li>
 						{{ $article->id }}
-						<input type="text" name="contingut[{{ $article->id }}]" value="{{ $article->article }}">
+						<input type="text" name="contingut" value="{{ $article->article }}">
 						<a href="{{ route('delete', $article->id) }}" onclick="return confirm('Are you sure?')">Delete</a>
 					</li>
 				@endforeach
