@@ -52,10 +52,6 @@ class LoginRequest extends FormRequest
             if ($attempts >= 3) {
                 $request->session()->put('show_captcha', true);
             }
-    
-            return back()->withErrors([
-                'email' => 'The provided credentials do not match our records.',
-            ]);
 
             throw ValidationException::withMessages([
                 'email' => trans('auth.failed'),
