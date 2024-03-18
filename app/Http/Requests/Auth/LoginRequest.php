@@ -56,14 +56,14 @@ class LoginRequest extends FormRequest
                 return back()->withErrors([
                     'email' => 'The provided credentials do not match our records.',
                 ]);
-            }
+            } else {
+            $request->session()->forget('login_attempts');
+        }
 
             throw ValidationException::withMessages([
                 'email' => trans('auth.failed'),
             ]);
-        } else {
-            $request->session()->forget('login_attempts');
-        }
+        } 
 
         RateLimiter::clear($this->throttleKey());
     }
