@@ -30,7 +30,7 @@
         {!! NoCaptcha::display() !!}
         @if ($errors->has('g-recaptcha-response'))
             <span class="feedbak-error">
-                <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                <p style="color: red;"><strong>{{ $errors->first('g-recaptcha-response') }}</strong></p>
             </span>
         @endif
 
