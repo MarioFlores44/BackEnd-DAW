@@ -27,18 +27,12 @@
         </div>
         <br>
 
-
-        @if (session('show_captcha'))
-        <div>
         {!! NoCaptcha::display() !!}
         @if ($errors->has('g-recaptcha-response'))
             <span class="feedbak-error">
                 <p style="color: red;"><strong>{{ $errors->first('g-recaptcha-response') }}</strong></p>
             </span>
         @endif
-        </div>
-        @endif
-
 
         <br>
         <!-- Remember Me -->
