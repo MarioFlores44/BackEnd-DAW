@@ -15,6 +15,7 @@
 </form>
 	<div class="contenidor">
 		<h1>Articles</h1>
+		<!-- Botones linkeados -->
         <button href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
             Logout
         </button>
@@ -24,6 +25,7 @@
 		<a href="{{ route('profile') }}">
 			Perfil
 		</a>
+		<!-- Mostramos los artículos con las funciones de editar y eliminar -->
 		<section class="articles">
 		<ul>
 			@foreach ($articles as $article)

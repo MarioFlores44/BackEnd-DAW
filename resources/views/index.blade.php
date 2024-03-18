@@ -12,9 +12,12 @@
 <body>
 	<div class="contenidor">
 		<h1>Articles</h1>
+		<!-- Botones linkeados -->
 		<form method="get">
 			<button name="Login" type="button" onclick="window.location.href='{{ route('login') }}'">Login</button>
 			<button name="Register" type="button" onclick="window.location.href='{{ route('register') }}'">Register</button>
+		</form>
+		<!-- Mostramos los artículos -->
 		<section class="articles">
 			<ul>
 				@foreach ($articles as $article)
