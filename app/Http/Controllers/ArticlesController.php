@@ -7,6 +7,7 @@ use App\Models\Articles;
 use App\Models\ArticlesNou;
 use Illuminate\Auth\Events\Registered;
 
+// Se crea el controlador ArticlesController para manejar las peticiones de la aplicación sobre los artículos.
 class ArticlesController extends Controller
 {
     function show() {
