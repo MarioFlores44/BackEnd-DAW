@@ -2,6 +2,8 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
+    {!! NoCaptcha::renderJs() !!}
+
     <form method="POST" action="{{ route('login') }}">
         @csrf
 
@@ -23,6 +25,13 @@
 
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
+
+        {!! NoCaptcha::display() !!}
+        @if ($errors->has('g-recaptcha-response'))
+            <span class="feedbak-error">
+                <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+            </span>
+        @endif
 
         <!-- Remember Me -->
         <div class="block mt-4">
