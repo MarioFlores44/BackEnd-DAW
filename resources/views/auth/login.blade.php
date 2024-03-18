@@ -1,5 +1,5 @@
 <?php
-public function login(Request $request)
+function login(Request $request)
 {
     $credentials = $request->only('email', 'password');
 
@@ -64,7 +64,7 @@ public function login(Request $request)
         </div>
         @endif
 
-        
+
         <br>
         <!-- Remember Me -->
         <div class="block mt-4">
