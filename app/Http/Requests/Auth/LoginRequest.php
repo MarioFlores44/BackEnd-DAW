@@ -45,9 +45,24 @@ class LoginRequest extends FormRequest
         if (! Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
             RateLimiter::hit($this->throttleKey());
 
+                // Authentication failed...
+                $attempts = $request->session()->get('login_attempts', 0) + 1;
+                $request->session()->put('login_attempts', $attempts);
+        
+                if ($attempts >= 3) {
+                    $request->session()->put('show_captcha', true);
+                }
+        
+                return back()->withErrors([
+                    'email' => 'The provided credentials do not match our records.',
+                ]);
+            }
+
             throw ValidationException::withMessages([
                 'email' => trans('auth.failed'),
             ]);
+        } else {
+            $request->session()->forget('login_attempts');
         }
 
         RateLimiter::clear($this->throttleKey());
