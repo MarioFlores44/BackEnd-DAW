@@ -15,10 +15,13 @@ use App\Http\Controllers\ArticlesController;
 |
 */
 
+// Ruta per a la pàgina principal
 Route::get('/', [ArticlesController::class, 'show'])->name('index');
 
+// Ruta per a la pàgina de edició
 Route::get('/dashboard',  [ArticlesController::class, 'show2'])->middleware(['auth'])->name('modificar');
 
+// Rutes per a la pàgina de creació
 Route::get('/crear', function(){
     return view('nou');
 })->name('crear');
@@ -27,10 +30,12 @@ Route::get('nouArticle', [ArticlesController::class, 'create'])->name('nouArticl
 
 Route::post('nouArticle', [ArticlesController::class, 'store']);
 
+// Rutes per a l'edició i eliminació d'articles
 Route::post('update', [ArticlesController::class, 'update'])->name('update');
 
 Route::get('delete/{id}', [ArticlesController::class, 'delete'])->name('delete');
 
+// Rutes per a l'administració del perfil
 Route::get('profile', [ProfileController::class, 'edit'])->name('profile');
 
 Route::post('profile', [ProfileController::class, 'update'])->name('profile.update');

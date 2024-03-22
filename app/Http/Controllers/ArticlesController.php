@@ -10,20 +10,25 @@ use Illuminate\Auth\Events\Registered;
 // Se crea el controlador ArticlesController para manejar las peticiones de la aplicación sobre los artículos.
 class ArticlesController extends Controller
 {
+
+    // Función para mostrar los artículos en la página principal.	
     function show() {
         $data = Articles::paginate(5);
         return view('index', ['articles' => $data]);
     }
 
+    // Función para mostrar los artículos en la página de edición.
     function show2() {
         $data = Articles::paginate(5);
         return view('modificar', ['articles' => $data]);
     }
 
+    // Función para crear un nuevo artículo.
     function create(){
         return view('create');
     }
 
+    // Función para eliminar un artículo.
     function delete($id){
         $article = Articles::find($id);
 
@@ -35,6 +40,7 @@ class ArticlesController extends Controller
         }
     }
 
+    // Función para actualizar un artículo.
     function update(Request $request){
         $article = Articles::find($request->id);
     
@@ -46,6 +52,7 @@ class ArticlesController extends Controller
         return redirect()->route('modificar');
     }
 
+    // Función para almacenar un artículo.
     function store(Request $request){
         $article = ArticlesNou::create([
             'article' => $request->contingut,

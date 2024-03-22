@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
+
+    // Funció per a fer login
     function login(Request $request)
     {
         $request->validate([
@@ -22,6 +24,7 @@ class AuthController extends Controller
         ], 401);
     }
 
+    // Funció per a fer register
     function register(Request $request)
     {
         $request->validate([
@@ -35,6 +38,7 @@ class AuthController extends Controller
         return response()->json($user);
     }
 
+    // Funció per a fer logout
     function user(Request $request)
     {
         return response()->json(auth()->user());
